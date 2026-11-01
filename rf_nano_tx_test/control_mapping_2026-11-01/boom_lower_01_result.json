@@ -1,0 +1,18 @@
+{
+  "status": "confirmed_main_boom_lower_and_self_stop",
+  "profile_id": "37248156",
+  "channel": 31,
+  "counter_start_hex": "06",
+  "counter_last_allocated_hex": "0d",
+  "hypothesis": "main_boom_lower",
+  "user_observation": "Main boom lowered and stopped by itself.",
+  "physical_readiness": "User confirmed original remote off, tractor on, ready to observe.",
+  "firmware_result": {
+    "token": "3207cc91",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

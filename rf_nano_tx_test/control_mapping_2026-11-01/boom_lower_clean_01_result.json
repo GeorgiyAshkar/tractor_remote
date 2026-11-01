@@ -1,0 +1,24 @@
+{
+  "status": "confirmed_only_main_boom_lower_and_self_stop",
+  "profile_id": "f470d358",
+  "channel": 31,
+  "counter_start_hex": "ee",
+  "counter_last_allocated_hex": "f5",
+  "hypothesis": "main_boom_lower_clean",
+  "semantic_status": "PHYSICALLY_CONFIRMED",
+  "action_slot7_hex": "70",
+  "basis": "Captured70 removes low-nibble02 from previously tested72; isolated movement not established until observation.",
+  "physical_setup": "Original remote off, model on stand; no change reported since preceding test.",
+  "committed_at": "2026-11-01T19:16:04+03:00",
+  "log": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01.log",
+  "user_observation": "Only main boom lowered and stopped by itself.",
+  "isolated_motion_confirmed": true,
+  "firmware_result": {
+    "token": "4fba0569",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

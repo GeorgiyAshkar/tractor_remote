@@ -1,0 +1,46 @@
+{
+  "status": "one_observed_control_confirmed_by_user",
+  "date": "2026-11-01",
+  "control": "tower_rotate_right",
+  "observed_self_stop": true,
+  "physical_stop_delay_ms": null,
+  "confirmed_test": 4,
+  "profile_id": "9c77d879",
+  "rf": {
+    "channel": 15,
+    "mhz": 2415,
+    "data_rate_mbps": 1,
+    "pa_dbm": -18,
+    "air_address_hex": "8d5fb5cb75",
+    "guards_hex": "7575",
+    "hardware_preamble_address_hex": "5555555555",
+    "auto_ack": false,
+    "auto_retries": 0,
+    "hardware_crc": false
+  },
+  "observed_payload_template_hex": "1513018822000d000000e2",
+  "payload_semantics": "Full template is associated with the observed movement; byte 6 alone is not a universal command map.",
+  "counter": {
+    "payload_index": 4,
+    "start_hex": "28",
+    "period_ms": 128,
+    "next_candidate_start_hex_at_time_of_original_test": "30"
+  },
+  "pid": "frames_queued modulo 4, increment per transmitted envelope",
+  "payload_checksum": "(sum(payload[0:10])+2) modulo 256 at index 10",
+  "radio_crc": "CRC16 CCITT polynomial 0x1021 initial 0xffff over air address + 9-bit PCF + scrambled payload, excluding guards",
+  "window_ms": 1000,
+  "actual_queued_frames": 198,
+  "limits": [
+    "One successful observed control, direction and stop confirmed by user.",
+    "Other movements, startup binding and a dedicated neutral packet are not established.",
+    "No movement replay is authorized by opening the port; ARM/FIRE and fresh host token are required."
+  ],
+  "historical_record": true,
+  "current_catalogue": "rf_nano_tx_test/control_catalogue.json",
+  "repeatability": {
+    "additional_confirmed_runs": 3,
+    "source": "rf_nano_tx_test/repeatability_2026-11-01/plan.json",
+    "note": "Three out of three right-turn repeats and self-stops confirmed."
+  }
+}

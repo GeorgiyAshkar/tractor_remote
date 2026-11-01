@@ -1,0 +1,11 @@
+{
+  "file": "rf_nano_receiver_probe/captures/2026-11-01_bucket_open_pulse_raw.log",
+  "known_air_address_hex": null,
+  "address_discovery": true,
+  "discovered_air_addresses": [],
+  "raw_records": 5401,
+  "matching_prefix_candidates": 0,
+  "crc_valid_frames": 0,
+  "crc_invalid_candidates": 0,
+  "frames": []
+}

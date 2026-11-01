@@ -1,0 +1,23 @@
+{
+  "status": "confirmed_only_right_backward_and_self_stop",
+  "profile_id": "a0930a40",
+  "channel": 31,
+  "counter_start_hex": "de",
+  "counter_last_allocated_hex": "e5",
+  "hypothesis": "right_track_backward",
+  "semantic_status": "PHYSICALLY_CONFIRMED",
+  "action_slot5_hex": "f0",
+  "basis": "Uncaptured reverse action inferred from packed-nibble model; left reverse0f now physically confirmed.",
+  "physical_setup": "Both tracks suspended, original remote off; no change reported since preceding test.",
+  "committed_at": "2026-11-01T19:11:58+03:00",
+  "log": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01.log",
+  "user_observation": "Only right track backward and self-stop confirmed; left stationary.",
+  "firmware_result": {
+    "token": "d54a9e3a",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

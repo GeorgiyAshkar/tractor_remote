@@ -1,0 +1,17 @@
+{
+  "status": "confirmed_main_boom_raise_and_self_stop",
+  "profile_id": "dcd5d68e",
+  "channel": 31,
+  "counter_start_hex": "0e",
+  "counter_last_allocated_hex": "15",
+  "hypothesis": "main_boom_raise",
+  "user_observation": "Main boom raised and stopped by itself.",
+  "firmware_result": {
+    "token": "9cae4503",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

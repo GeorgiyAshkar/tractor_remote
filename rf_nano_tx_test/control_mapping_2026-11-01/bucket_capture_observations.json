@@ -1,0 +1,26 @@
+{
+  "close": {
+    "source": "rf_nano_receiver_probe/captures/2026-11-01_bucket_close_pulse_raw.log",
+    "user_observation": "Bucket closed using original remote; button released.",
+    "crc_valid_frames": 28,
+    "field6_candidates": [
+      "e0",
+      "d0",
+      "b0",
+      "00",
+      "70",
+      "62"
+    ]
+  },
+  "open_attempt_1": {
+    "source": "rf_nano_receiver_probe/captures/2026-11-01_bucket_open_pulse_raw.log",
+    "user_observation": "Bucket partially opened using original remote; button released.",
+    "crc_valid_frames": 0,
+    "inference": "No packet mapping from this record."
+  },
+  "open_attempt_2": {
+    "source": "rf_nano_receiver_probe/captures/2026-11-01_bucket_open_pulse_repeat_raw.log",
+    "status": "uncued_user_changed_target_to_boom"
+  },
+  "operator_clarification": "Actual bucket is not attached; actuator labels remain unverified."
+}

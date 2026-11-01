@@ -1,0 +1,23 @@
+{
+  "status": "confirmed_both_tracks_forward_and_self_stop",
+  "profile_id": "2f6f18cc",
+  "channel": 31,
+  "counter_start_hex": "e6",
+  "counter_last_allocated_hex": "ed",
+  "hypothesis": "both_tracks_forward",
+  "semantic_status": "PHYSICALLY_CONFIRMED",
+  "action_slot5_hex": "77",
+  "basis": "Combines separately physically confirmed LF07 and RF70; combined command not yet observed.",
+  "physical_setup": "Both tracks suspended, original remote off; no change reported since preceding test.",
+  "committed_at": "2026-11-01T19:13:26+03:00",
+  "log": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01.log",
+  "user_observation": "Both tracks forward and self-stop confirmed.",
+  "firmware_result": {
+    "token": "3e95ad77",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

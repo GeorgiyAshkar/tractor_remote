@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "kind": "curated_actual_target_radio_frames",
+  "provenance_note": "Each full_source_sha256 identifies the complete original private capture log, not this JSON or a curated excerpt. Original line numbers are provenance, not positions within this fixture. No full log is required to verify the included rows.",
+  "scope_note": "Only selected CRC-valid target HS6200-style envelopes are included. Unrelated BLE frames and the ambient full-band corpus are omitted. Control tags refer to documented physical observations of this particular model; reverse and combined actions were inferred/tested separately and are not claimed as captured stock frames.",
+  "frames": [
+    {
+      "id": "captured_tower_right_0d_1109",
+      "control_tag": "tower_rotate_right",
+      "variant": "captured_tower_right_0d",
+      "source": {
+        "original_filename": "2026-11-01_fresh_tower_right_held_raw.log",
+        "full_source_sha256": "5ae380c9d958d74b8bf46530512011a2d78693fec2618eed876bc535d9c6c4f4",
+        "original_line": 1109
+      },
+      "raw_line": "2026-11-01T12:45:06.630+03:00 RAW,channel=15,mhz=2415,pipe=1,bytes=32,hex=8d5fb5cb7575752fcaf31d42a7957a5e28c7572f6ed6ab5015925a2a46a81d20",
+      "expected": {
+        "channel": 15,
+        "mhz": 2415,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "1513018822000d000000e2",
+        "pid": 3,
+        "no_ack": 1,
+        "crc16": "5edd",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "captured_tower_left_04_1816",
+      "control_tag": "tower_rotate_left",
+      "variant": "captured_tower_left_04",
+      "source": {
+        "original_filename": "2026-10-31_tower_left_held_raw.log",
+        "full_source_sha256": "6070018777b49ce51569e9c65e6d767c627d8a18deaff5322801ed8a403fd033",
+        "original_line": 1816
+      },
+      "raw_line": "2026-10-31T18:41:28.207+03:00 RAW,channel=15,mhz=2415,pipe=1,bytes=32,hex=8d5fb5cb7575752dcaf31d42da157ede28c76e608bf26512a6427224b41ad143",
+      "expected": {
+        "channel": 15,
+        "mhz": 2415,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188d9000400000090",
+        "pid": 1,
+        "no_ack": 1,
+        "crc16": "c117",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "captured_boom_up_d0_8490",
+      "control_tag": "main_boom_raise",
+      "variant": "captured_boom_up_d0",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_confirmed_pulse_raw.log",
+        "full_source_sha256": "74c569135f34b4950e77fdf3fba6e66f29cfb16ccee18e4b25ba3f679f6fe7cd",
+        "original_line": 8490
+      },
+      "raw_line": "2026-11-01T18:17:35.047+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752ecaf31d4292157cb628c740766bf6d62b5d0168c9d64b8545",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188490000d00000cc",
+        "pid": 2,
+        "no_ack": 1,
+        "crc16": "ecd7",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "captured_boom_up_d0_8496",
+      "control_tag": "main_boom_raise",
+      "variant": "captured_boom_up_d0",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_confirmed_pulse_raw.log",
+        "full_source_sha256": "74c569135f34b4950e77fdf3fba6e66f29cfb16ccee18e4b25ba3f679f6fe7cd",
+        "original_line": 8496
+      },
+      "raw_line": "2026-11-01T18:17:35.105+03:00 RAW,channel=31,mhz=2431,pipe=0,bytes=32,hex=affaaa357ed72dd5d5d4b72bcc750a4855f2d8a31d01cfd35258e19030a50313",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 0,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188490000d00000cc",
+        "pid": 1,
+        "no_ack": 1,
+        "crc16": "e7e9",
+        "bit_offset": 22,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "preferred_isolated_lower_70_3813",
+      "control_tag": "main_boom_lower",
+      "variant": "preferred_isolated_lower_70",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_pulse_raw.log",
+        "full_source_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+        "original_line": 3813
+      },
+      "raw_line": "2026-11-01T18:10:29.052+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=357ed72dd5d5d4b32bcc750aa455f398a31c5cf42b5d8d75c150d7052ac07641",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "151301883f000070000062",
+        "pid": 0,
+        "no_ack": 1,
+        "crc16": "7a15",
+        "bit_offset": -2,
+        "missing_leading_address_bits": 2
+      },
+      "source_label_correction": "The historical filename says raise; the operator reported actual DOWN. The70 template was subsequently confirmed as isolated lowering;72 retains possible coactuation uncertainty.",
+      "address_reconstruction_note": "Two leading address bits were not captured; decoding supplies them from the independently observed full address and checks CRC. They are not presented as directly observed bits."
+    },
+    {
+      "id": "preferred_isolated_lower_70_3814",
+      "control_tag": "main_boom_lower",
+      "variant": "preferred_isolated_lower_70",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_pulse_raw.log",
+        "full_source_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+        "original_line": 3814
+      },
+      "raw_line": "2026-11-01T18:10:29.063+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752dcaf31d42a9157ce628c7173e7fd52aa130352090a464bca1",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "151301883f000070000062",
+        "pid": 1,
+        "no_ack": 1,
+        "crc16": "7cff",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      },
+      "source_label_correction": "The historical filename says raise; the operator reported actual DOWN. The70 template was subsequently confirmed as isolated lowering;72 retains possible coactuation uncertainty."
+    },
+    {
+      "id": "historical_lower_72_coactuation_uncertain_4393",
+      "control_tag": "main_boom_lower",
+      "variant": "historical_lower_72_coactuation_uncertain",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_pulse_raw.log",
+        "full_source_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+        "original_line": 4393
+      },
+      "raw_line": "2026-11-01T18:10:35.022+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752fcaf31d4280157ce728c76f7c940be42880045688b05512a9",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "151301886d000072000092",
+        "pid": 3,
+        "no_ack": 1,
+        "crc16": "f928",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      },
+      "source_label_correction": "The historical filename says raise; the operator reported actual DOWN. The70 template was subsequently confirmed as isolated lowering;72 retains possible coactuation uncertainty."
+    },
+    {
+      "id": "historical_lower_72_coactuation_uncertain_4398",
+      "control_tag": "main_boom_lower",
+      "variant": "historical_lower_72_coactuation_uncertain",
+      "source": {
+        "original_filename": "2026-11-01_boom_raise_pulse_raw.log",
+        "full_source_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+        "original_line": 4398
+      },
+      "raw_line": "2026-11-01T18:10:35.076+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752ecaf31d4280157ce728c76f7fe10414081066089117492087",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "151301886d000072000092",
+        "pid": 2,
+        "no_ack": 1,
+        "crc16": "ffc2",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      },
+      "source_label_correction": "The historical filename says raise; the operator reported actual DOWN. The70 template was subsequently confirmed as isolated lowering;72 retains possible coactuation uncertainty."
+    },
+    {
+      "id": "captured_left_forward_07_4605",
+      "control_tag": "left_track_forward",
+      "variant": "captured_left_forward_07",
+      "source": {
+        "original_filename": "2026-11-01_left_track_forward_raw.log",
+        "full_source_sha256": "007db61fccdee7c4f817f21209556eb4508421aca84473beb088a89f84200219",
+        "original_line": 4605
+      },
+      "raw_line": "2026-11-01T18:38:45.087+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752dcaf31d42ef96fcde28c7102b7b132a2850195b05bd344853",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188b207000000006c",
+        "pid": 1,
+        "no_ack": 1,
+        "crc16": "56f6",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "captured_left_forward_07_4606",
+      "control_tag": "left_track_forward",
+      "variant": "captured_left_forward_07",
+      "source": {
+        "original_filename": "2026-11-01_left_track_forward_raw.log",
+        "full_source_sha256": "007db61fccdee7c4f817f21209556eb4508421aca84473beb088a89f84200219",
+        "original_line": 4606
+      },
+      "raw_line": "2026-11-01T18:38:45.095+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752ecaf31d42ef96fcde28c7102ee409815297a1ea49f4bb0e55",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188b207000000006c",
+        "pid": 2,
+        "no_ack": 1,
+        "crc16": "5dc8",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      }
+    },
+    {
+      "id": "captured_right_forward_70_17851",
+      "control_tag": "right_track_forward",
+      "variant": "captured_right_forward_70",
+      "source": {
+        "original_filename": "2026-11-01_left_track_backward_raw.log",
+        "full_source_sha256": "8770b204dd6b97b46034b9eecf2b7de139ac41997bc54c0aedc1f600a0f2baac",
+        "original_line": 17851
+      },
+      "raw_line": "2026-11-01T18:47:40.240+03:00 RAW,channel=31,mhz=2431,pipe=1,bytes=32,hex=8d5fb5cb7575752ccaf31d42edad7cde28c74af5bcda4f7328022dd2bab2608b",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 1,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188b67000000000d9",
+        "pid": 0,
+        "no_ack": 1,
+        "crc16": "eb79",
+        "bit_offset": 0,
+        "missing_leading_address_bits": 0
+      },
+      "source_label_correction": "The historical filename says left backward; the operator actually held RIGHT FORWARD. No reverse stock-remote frame is claimed."
+    },
+    {
+      "id": "captured_right_forward_70_17852",
+      "control_tag": "right_track_forward",
+      "variant": "captured_right_forward_70",
+      "source": {
+        "original_filename": "2026-11-01_left_track_backward_raw.log",
+        "full_source_sha256": "8770b204dd6b97b46034b9eecf2b7de139ac41997bc54c0aedc1f600a0f2baac",
+        "original_line": 17852
+      },
+      "raw_line": "2026-11-01T18:47:40.252+03:00 RAW,channel=31,mhz=2431,pipe=0,bytes=32,hex=46afdae5bababa96e5798ea176d6be6f1463a57b64fd91c0428620aeeb99d90c",
+      "expected": {
+        "channel": 31,
+        "mhz": 2431,
+        "pipe": 0,
+        "air_address_hex": "8d5fb5cb75",
+        "guards_hex": "7575",
+        "payload_length": 11,
+        "payload_hex": "15130188b67000000000d9",
+        "pid": 1,
+        "no_ack": 1,
+        "crc16": "ed93",
+        "bit_offset": 1,
+        "missing_leading_address_bits": 0
+      },
+      "source_label_correction": "The historical filename says left backward; the operator actually held RIGHT FORWARD. No reverse stock-remote frame is claimed."
+    }
+  ]
+}

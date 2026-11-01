@@ -1,0 +1,18 @@
+{
+  "status": "confirmed_only_left_forward_and_self_stop",
+  "profile_id": "0b9b4c89",
+  "channel": 31,
+  "counter_start_hex": "c6",
+  "counter_last_allocated_hex": "cd",
+  "hypothesis": "left_track_forward",
+  "user_observation": "Only left track rotated forward and stopped by itself.",
+  "physical_setup": "User confirmed original remote off and both tracks suspended.",
+  "firmware_result": {
+    "token": "102114b1",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

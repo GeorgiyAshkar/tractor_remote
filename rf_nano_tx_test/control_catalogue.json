@@ -1,0 +1,931 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "timezone": "Europe/Moscow",
+  "kind": "documentation_control_catalogue",
+  "executable": false,
+  "purpose": "Evidence registry for this particular toy and observed full templates; not a generic TX command entry point.",
+  "path_base": "workspace_root",
+  "payload_indexing": "zero_based",
+  "device_context": {
+    "project_model": "Huina 1594",
+    "air_address_hex": "8d5fb5cb75",
+    "payload_identity_prefix_hex": "15130188",
+    "scope": "Observed peer/session and existing physical setup only.",
+    "attachment_note": "User clarified that the bucket attachment is not mounted."
+  },
+  "common_radio_envelope": {
+    "format": "observed HS6200-style envelope",
+    "data_rate_mbps": 1,
+    "pa_dbm": -18,
+    "guards_hex": "7575",
+    "hardware_preamble_address_hex": "5555555555",
+    "auto_ack": false,
+    "auto_retries": 0,
+    "hardware_crc": false,
+    "no_ack_bit": 1,
+    "payload_size_bytes": 11,
+    "software_frame_size_bytes": 22,
+    "radio_crc": "CRC16 CCITT, polynomial 0x1021, initial 0xffff; air address + 9-bit PCF + scrambled payload; guards excluded.",
+    "counter": {
+      "payload_index": 4,
+      "period_ms": 128,
+      "modulus": 256,
+      "policy": "Select a current explicit counter start from the latest stock-remote capture or committed Nano counter range. Catalogue templates contain historical counters, not reusable live starts."
+    },
+    "application_checksum": {
+      "payload_index": 10,
+      "rule": "(sum(payload[0:10])+2) modulo 256"
+    },
+    "pid": {
+      "location": "two-bit PCF field",
+      "rule": "frames_already_queued modulo 4; increment for each generated envelope"
+    },
+    "generated_packet_changes": {
+      "payload_indices": [
+        4,
+        10
+      ],
+      "envelope_fields": [
+        "PID",
+        "CRC16"
+      ]
+    },
+    "reference_implementation": {
+      "generator": "rf_nano_tx_test/make_profile.py",
+      "packet_builder": "rf_nano_tx_test/tx_frame_builder.h"
+    }
+  },
+  "controls": [
+    {
+      "control": "tower_rotate_right",
+      "label_ru": "Поворот башни вправо",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 4,
+      "repeatability_series": {
+        "confirmed": 3,
+        "attempted": 3,
+        "report": "rf_nano_tx_test/repeatability_2026-11-01/plan.json"
+      },
+      "rf_channel": 15,
+      "frequency_mhz": 2415,
+      "full_observed_payload_template_hex": "1513018822000d000000e2",
+      "observed_action_slots": {
+        "6": "0d",
+        "7": "00"
+      },
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-11-01_fresh_tower_right_held_raw.log",
+        "capture_sha256": "5ae380c9d958d74b8bf46530512011a2d78693fec2618eed876bc535d9c6c4f4",
+        "frame_a_line": 1109,
+        "frame_b_line": 1109,
+        "frame_a_timestamp": "2026-11-01T12:45:06.630+03:00",
+        "frame_b_timestamp": "2026-11-01T12:45:06.630+03:00",
+        "frame_a_captured_pid": 3,
+        "frame_b_captured_pid": 3,
+        "frame_a_captured_crc16": "5edd",
+        "frame_b_captured_crc16": "5edd",
+        "address_bits_reconstructed_a": 0,
+        "address_bits_reconstructed_b": 0
+      },
+      "computer_tests": [
+        {
+          "name": "initial_counter_advance_test_04",
+          "status": "confirmed_right_and_self_stop",
+          "profile_id": "9c77d879",
+          "counter_allocated_hex": "28..2f",
+          "profile_report": "rf_nano_tx_test/2026-11-01_counter_profile_review.json",
+          "log": "rf_nano_tx_test/2026-11-01_test_04_counters.log",
+          "observation_report": "rf_nano_tx_test/working_control.json",
+          "observed_direction": "right",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198
+        },
+        {
+          "name": "repeatability_01",
+          "status": "confirmed_right_and_self_stop",
+          "profile_id": "407826c6",
+          "counter_allocated_hex": "30..37",
+          "profile_report": "rf_nano_tx_test/repeatability_2026-11-01/run_01_profile.json",
+          "profile_header": "rf_nano_tx_test/repeatability_2026-11-01/run_01_profile.h",
+          "log": "rf_nano_tx_test/repeatability_2026-11-01/run_01.log",
+          "observation_report": "rf_nano_tx_test/repeatability_2026-11-01/plan.json",
+          "observed_direction": "right",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198
+        },
+        {
+          "name": "repeatability_02",
+          "status": "confirmed_right_and_self_stop",
+          "profile_id": "bd52716c",
+          "counter_allocated_hex": "38..3f",
+          "profile_report": "rf_nano_tx_test/repeatability_2026-11-01/run_02_profile.json",
+          "profile_header": "rf_nano_tx_test/repeatability_2026-11-01/run_02_profile.h",
+          "log": "rf_nano_tx_test/repeatability_2026-11-01/run_02.log",
+          "observation_report": "rf_nano_tx_test/repeatability_2026-11-01/plan.json",
+          "observed_direction": "right",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198
+        },
+        {
+          "name": "repeatability_03",
+          "status": "confirmed_right_and_self_stop",
+          "profile_id": "a78079ad",
+          "counter_allocated_hex": "40..47",
+          "profile_report": "rf_nano_tx_test/repeatability_2026-11-01/run_03_profile.json",
+          "profile_header": "rf_nano_tx_test/repeatability_2026-11-01/run_03_profile.h",
+          "log": "rf_nano_tx_test/repeatability_2026-11-01/run_03.log",
+          "observation_report": "rf_nano_tx_test/repeatability_2026-11-01/plan.json",
+          "observed_direction": "right",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198
+        }
+      ],
+      "limits": [
+        "Four successful one-second observations in this setup; not a universal reliability claim.",
+        "Earlier exact-frame replays were inconsistent and are not counted as confirmed directional successes."
+      ]
+    },
+    {
+      "control": "tower_rotate_left",
+      "label_ru": "Поворот башни влево",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 15,
+      "frequency_mhz": 2415,
+      "full_observed_payload_template_hex": "15130188d9000400000090",
+      "observed_action_slots": {
+        "6": "04",
+        "7": "00"
+      },
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-10-31_tower_left_held_raw.log",
+        "capture_sha256": "6070018777b49ce51569e9c65e6d767c627d8a18deaff5322801ed8a403fd033",
+        "frame_a_line": 1816,
+        "frame_b_line": 1816,
+        "frame_a_timestamp": "2026-10-31T18:41:28.207+03:00",
+        "frame_b_timestamp": "2026-10-31T18:41:28.207+03:00",
+        "frame_a_captured_pid": 1,
+        "frame_b_captured_pid": 1,
+        "frame_a_captured_crc16": "c117",
+        "frame_b_captured_crc16": "c117",
+        "address_bits_reconstructed_a": 0,
+        "address_bits_reconstructed_b": 0
+      },
+      "computer_tests": [
+        {
+          "profile_id": "14a11a61",
+          "status": "confirmed_by_user",
+          "counter_allocated_hex": "48..4f",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/tower_left_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/tower_left_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/tower_left_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/tower_left_01_result.json",
+          "observed_direction": "left",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198
+        }
+      ],
+      "counter_epoch_source": null
+    },
+    {
+      "control": "main_boom_lower",
+      "label_ru": "Опускание основной стрелы",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 2,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_observed_payload_template_hex": "151301883f000070000062",
+      "observed_action_slots": {
+        "6": "00",
+        "7": "70"
+      },
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-11-01_boom_raise_pulse_raw.log",
+        "capture_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+        "frame_a_line": 3814,
+        "frame_a_timestamp": "2026-11-01T18:10:29.063+03:00",
+        "frame_a_captured_pid": 1,
+        "frame_a_captured_crc16": "7cff",
+        "frame_a_bit_offset": 0,
+        "address_bits_reconstructed_a": 0,
+        "reconstruction_basis_a": null,
+        "frame_b_line": 3813,
+        "frame_b_timestamp": "2026-11-01T18:10:29.052+03:00",
+        "frame_b_captured_pid": 0,
+        "frame_b_captured_crc16": "7a15",
+        "frame_b_bit_offset": -2,
+        "address_bits_reconstructed_b": 2,
+        "reconstruction_basis_b": "enumerated_leading_bits_crc_checked"
+      },
+      "computer_tests": [
+        {
+          "profile_id": "37248156",
+          "status": "confirmed_by_user",
+          "counter_allocated_hex": "06..0d",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_01_result.json",
+          "observed_direction": "lower",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "full_payload_template_hex": "151301886d000072000092",
+          "observed_action_slots": {
+            "6": "00",
+            "7": "72"
+          },
+          "isolated_motion_confirmed": false,
+          "preferred_for_future_control": false
+        },
+        {
+          "profile_id": "f470d358",
+          "status": "confirmed_only_main_boom_lower_and_self_stop",
+          "counter_allocated_hex": "ee..f5",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01_result.json",
+          "observed_direction": "lower",
+          "observed_only_main_boom": true,
+          "isolated_motion_confirmed": true,
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Only main boom lowered and stopped by itself.",
+          "full_payload_template_hex": "151301883f000070000062",
+          "observed_action_slots": {
+            "6": "00",
+            "7": "70"
+          },
+          "preferred_for_future_control": true
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01.log",
+        "allocated_range_hex": "e6..ed",
+        "selected_start_hex": "ee"
+      },
+      "capture_label_correction": "The source filename says raise; the operator reported pressing DOWN. Actual operator report overrides the requested label.",
+      "capture_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_capture_analysis.json",
+      "isolated_actuator_mapping": "confirmed_for_preferred_slot7_70_template",
+      "limits": [
+        "The preferred slot-7=70 template was physically confirmed to lower only the main boom and stop by itself in one computer pulse.",
+        "The historical slot-7=72 template also lowered the boom and self-stopped, but its low-nibble02 may coactivate another function; isolated movement was not established for72.",
+        "Physical stop delay was not measured; a dedicated neutral packet and binding procedure remain unresolved."
+      ],
+      "historical_capture_sources": [
+        {
+          "full_observed_payload_template_hex": "151301886d000072000092",
+          "observed_action_slots": {
+            "6": "00",
+            "7": "72"
+          },
+          "capture_source": {
+            "capture": "rf_nano_receiver_probe/captures/2026-11-01_boom_raise_pulse_raw.log",
+            "capture_sha256": "0c52e7cb73eff732349c8e5c4c69cbd3178570d0bf52a7e4dd85b0612bcf592f",
+            "frame_a_line": 4393,
+            "frame_b_line": 4398,
+            "frame_a_timestamp": "2026-11-01T18:10:35.022+03:00",
+            "frame_b_timestamp": "2026-11-01T18:10:35.076+03:00",
+            "frame_a_captured_pid": 3,
+            "frame_b_captured_pid": 2,
+            "frame_a_captured_crc16": "f928",
+            "frame_b_captured_crc16": "ffc2",
+            "address_bits_reconstructed_a": 0,
+            "address_bits_reconstructed_b": 0
+          },
+          "interpretation": "Main boom lowered and self-stopped, but low-nibble02 coactuation remains uncertain; not the preferred isolated-lower template."
+        }
+      ],
+      "confirmed_isolated_computer_pulses": 1,
+      "preferred_profile_id": "f470d358",
+      "preferred_action_slots": {
+        "6": "00",
+        "7": "70"
+      },
+      "preferred_template": {
+        "status": "confirmed_only_main_boom_lower_and_self_stop",
+        "full_observed_payload_template_hex": "151301883f000070000062",
+        "action_slot7_hex": "70",
+        "profile_id": "f470d358",
+        "counter_allocated_hex": "ee..f5",
+        "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01_result.json",
+        "isolated_motion_confirmed": true
+      }
+    },
+    {
+      "control": "main_boom_raise",
+      "label_ru": "Подъём основной стрелы",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_observed_payload_template_hex": "15130188490000d00000cc",
+      "observed_action_slots": {
+        "6": "00",
+        "7": "d0"
+      },
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-11-01_boom_raise_confirmed_pulse_raw.log",
+        "capture_sha256": "74c569135f34b4950e77fdf3fba6e66f29cfb16ccee18e4b25ba3f679f6fe7cd",
+        "frame_a_line": 8490,
+        "frame_b_line": 8496,
+        "frame_a_timestamp": "2026-11-01T18:17:35.047+03:00",
+        "frame_b_timestamp": "2026-11-01T18:17:35.105+03:00",
+        "frame_a_captured_pid": 2,
+        "frame_b_captured_pid": 1,
+        "frame_a_captured_crc16": "ecd7",
+        "frame_b_captured_crc16": "e7e9",
+        "address_bits_reconstructed_a": 0,
+        "address_bits_reconstructed_b": 0
+      },
+      "computer_tests": [
+        {
+          "profile_id": "dcd5d68e",
+          "status": "confirmed_by_user",
+          "counter_allocated_hex": "0e..15",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_raise_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/boom_raise_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/boom_raise_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/boom_raise_01_result.json",
+          "observed_direction": "raise",
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "user_observation": "Main boom raised and stopped by itself; confirmed by user to the root agent."
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "boom_lower_01.log",
+        "allocated_range_hex": "06..0d",
+        "reason": "Original remote stayed off after the last TX test; continue Nano sequence."
+      },
+      "capture_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/boom_raise_capture_analysis.json",
+      "limits": [
+        "One computer pulse was physically confirmed to raise the main boom and stop by itself.",
+        "Capture contains interleaved D0/E0 and other values; no exact press-onset marker supports labelling every captured frame as UP."
+      ]
+    },
+    {
+      "control": "left_track_forward",
+      "label_ru": "Левая гусеница вперёд",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_observed_payload_template_hex": "15130188b207000000006c",
+      "observed_action_slots": {
+        "5": "07",
+        "6": "00",
+        "7": "00",
+        "8": "00",
+        "9": "00"
+      },
+      "observed_only_commanded_track": true,
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "physical_setup": "Both tracks suspended; original remote off.",
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_forward_raw.log",
+        "capture_sha256": "007db61fccdee7c4f817f21209556eb4508421aca84473beb088a89f84200219",
+        "frame_a_line": 4605,
+        "frame_b_line": 4606,
+        "frame_a_timestamp": "2026-11-01T18:38:45.087+03:00",
+        "frame_b_timestamp": "2026-11-01T18:38:45.095+03:00",
+        "frame_a_captured_pid": 1,
+        "frame_b_captured_pid": 2,
+        "frame_a_captured_crc16": "56f6",
+        "frame_b_captured_crc16": "5dc8",
+        "frame_a_bit_offset": 0,
+        "frame_b_bit_offset": 0,
+        "address_bits_reconstructed_a": 0,
+        "address_bits_reconstructed_b": 0
+      },
+      "computer_tests": [
+        {
+          "profile_id": "0b9b4c89",
+          "status": "confirmed_only_left_forward_and_self_stop",
+          "counter_allocated_hex": "c6..cd",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01_result.json",
+          "observed_direction": "forward",
+          "observed_track": "left",
+          "other_track_stationary": true,
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Only left track rotated forward and stopped by itself."
+        }
+      ],
+      "counter_epoch_source": {
+        "file": "rf_nano_receiver_probe/captures/2026-11-01_left_track_backward_raw.log",
+        "actual_operator_action": "right_track_forward",
+        "last_observed_counter_hex": "c5",
+        "selected_start_hex": "c6"
+      },
+      "capture_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_capture_analysis.json",
+      "limits": [
+        "One computer pulse confirmed only the named forward track and self-stop in the suspended setup.",
+        "The forward capture does not establish a reverse command; any reverse result has separate computer-test evidence.",
+        "The complete observed payload template was tested; slot values alone are not universal commands."
+      ]
+    },
+    {
+      "control": "right_track_forward",
+      "label_ru": "Правая гусеница вперёд",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_observed_payload_template_hex": "15130188b67000000000d9",
+      "observed_action_slots": {
+        "5": "70",
+        "6": "00",
+        "7": "00",
+        "8": "00",
+        "9": "00"
+      },
+      "observed_only_commanded_track": true,
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "physical_setup": "Both tracks suspended; original remote off.",
+      "capture_source": {
+        "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_backward_raw.log",
+        "capture_sha256": "8770b204dd6b97b46034b9eecf2b7de139ac41997bc54c0aedc1f600a0f2baac",
+        "frame_a_line": 17851,
+        "frame_b_line": 17852,
+        "frame_a_timestamp": "2026-11-01T18:47:40.240+03:00",
+        "frame_b_timestamp": "2026-11-01T18:47:40.252+03:00",
+        "frame_a_captured_pid": 0,
+        "frame_b_captured_pid": 1,
+        "frame_a_captured_crc16": "eb79",
+        "frame_b_captured_crc16": "ed93",
+        "frame_a_bit_offset": 0,
+        "frame_b_bit_offset": 1,
+        "address_bits_reconstructed_a": 0,
+        "address_bits_reconstructed_b": 0
+      },
+      "computer_tests": [
+        {
+          "profile_id": "844f1254",
+          "status": "confirmed_only_right_forward_and_self_stop",
+          "counter_allocated_hex": "ce..d5",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01_result.json",
+          "observed_direction": "forward",
+          "observed_track": "right",
+          "other_track_stationary": true,
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Only right track rotated forward and stopped by itself; left stationary."
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01.log",
+        "allocated_range_hex": "c6..cd",
+        "selected_start_hex": "ce",
+        "reason": "Continue the Nano sequence after the confirmed left-forward test with the original remote remaining off."
+      },
+      "capture_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_capture_analysis.json",
+      "limits": [
+        "One computer pulse confirmed only the named forward track and self-stop in the suspended setup.",
+        "The forward capture does not establish a reverse command; any reverse result has separate computer-test evidence.",
+        "The complete observed payload template was tested; slot values alone are not universal commands."
+      ],
+      "capture_label_correction": "The source filename says left_track_backward; the operator actually held RIGHT FORWARD. Operator confirmation overrides the requested filename label."
+    },
+    {
+      "control": "left_track_backward",
+      "label_ru": "Левая гусеница назад",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_tested_payload_template_hex": "15130188b20f0000000074",
+      "observed_action_slots": {
+        "5": "0f",
+        "6": "00",
+        "7": "00",
+        "8": "00",
+        "9": "00"
+      },
+      "observed_only_commanded_track": true,
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "physical_setup": "Both tracks suspended, original remote off; no change reported since preceding test.",
+      "stock_remote_reverse_capture": null,
+      "source_provenance": [
+        {
+          "profile_json": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01_profile.json",
+          "profile_json_sha256": "1c4027ebb1b35ae10d454198e5a6988e5fe17d5771228b544228bdc85648d95d",
+          "profile_id": "0b9b4c89",
+          "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_forward_raw.log",
+          "capture_sha256": "007db61fccdee7c4f817f21209556eb4508421aca84473beb088a89f84200219",
+          "captured_frame_a": {
+            "line": 4605,
+            "timestamp": "2026-11-01T18:38:45.087+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 1,
+            "no_ack": 1,
+            "payload_hex": "15130188b207000000006c",
+            "scrambled_payload_hex": "95e63a85df2df9bc518e20",
+            "crc16": "56f6",
+            "encoded_hex": "8d5fb5cb7575752dcaf31d42ef96fcde28c7102b7b00"
+          },
+          "captured_frame_b": {
+            "line": 4606,
+            "timestamp": "2026-11-01T18:38:45.095+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 2,
+            "no_ack": 1,
+            "payload_hex": "15130188b207000000006c",
+            "scrambled_payload_hex": "95e63a85df2df9bc518e20",
+            "crc16": "5dc8",
+            "encoded_hex": "8d5fb5cb7575752ecaf31d42ef96fcde28c7102ee400"
+          }
+        }
+      ],
+      "action_transformation": {
+        "payload_indices_changed": [
+          5,
+          10
+        ],
+        "new_slot5_hex": "0f",
+        "model": "unverified packed-nibble direction/magnitude model"
+      },
+      "provenance_status": "Inferred from the forward-template nibble model before transmission; subsequently confirmed physically by the user. Not a captured stock-remote reverse frame.",
+      "computer_tests": [
+        {
+          "profile_id": "b5d11eff",
+          "status": "confirmed_only_left_backward_and_self_stop",
+          "counter_allocated_hex": "d6..dd",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_backward_hypothesis_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_backward_hypothesis_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_backward_hypothesis_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_backward_hypothesis_01_result.json",
+          "observed_direction": "backward",
+          "observed_track": "left",
+          "other_track_stationary": true,
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Only left track backward and self-stop confirmed; right stationary."
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01.log",
+        "allocated_range_hex": "ce..d5",
+        "selected_start_hex": "d6"
+      },
+      "limits": [
+        "One computer pulse confirmed only left-track reverse and self-stop in this suspended setup.",
+        "The reverse value was inferred before this physical test; no original-remote reverse capture is available.",
+        "The full template and this device pair were tested; nibble values are not universal commands."
+      ]
+    },
+    {
+      "control": "right_track_backward",
+      "label_ru": "Правая гусеница назад",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_tested_payload_template_hex": "15130188b6f00000000059",
+      "observed_action_slots": {
+        "5": "f0",
+        "6": "00",
+        "7": "00",
+        "8": "00",
+        "9": "00"
+      },
+      "observed_only_commanded_track": true,
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "physical_setup": "Both tracks suspended, original remote off; no change reported since preceding test.",
+      "stock_remote_reverse_capture": null,
+      "source_provenance": [
+        {
+          "profile_json": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01_profile.json",
+          "profile_json_sha256": "1536a136e90f3762936da04c9fd2c1a910850e757c2a458750872568f0d544aa",
+          "profile_id": "844f1254",
+          "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_backward_raw.log",
+          "capture_sha256": "8770b204dd6b97b46034b9eecf2b7de139ac41997bc54c0aedc1f600a0f2baac",
+          "captured_frame_a": {
+            "line": 17851,
+            "timestamp": "2026-11-01T18:47:40.240+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 0,
+            "no_ack": 1,
+            "payload_hex": "15130188b67000000000d9",
+            "scrambled_payload_hex": "95e63a85db5af9bc518e95",
+            "crc16": "eb79",
+            "encoded_hex": "8d5fb5cb7575752ccaf31d42edad7cde28c74af5bc80"
+          },
+          "captured_frame_b": {
+            "line": 17852,
+            "timestamp": "2026-11-01T18:47:40.252+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 1,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 1,
+            "no_ack": 1,
+            "payload_hex": "15130188b67000000000d9",
+            "scrambled_payload_hex": "95e63a85db5af9bc518e95",
+            "crc16": "ed93",
+            "encoded_hex": "8d5fb5cb7575752dcaf31d42edad7cde28c74af6c980"
+          }
+        }
+      ],
+      "action_transformation": {
+        "payload_indices_changed": [
+          5,
+          10
+        ],
+        "new_slot5_hex": "f0",
+        "model": "unverified packed-nibble direction/magnitude model"
+      },
+      "provenance_status": "Inferred from the forward-template nibble model before transmission; subsequently confirmed physically by the user. Not a captured stock-remote reverse frame.",
+      "computer_tests": [
+        {
+          "profile_id": "a0930a40",
+          "status": "confirmed_only_right_backward_and_self_stop",
+          "counter_allocated_hex": "de..e5",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01_result.json",
+          "observed_direction": "backward",
+          "observed_track": "right",
+          "other_track_stationary": true,
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Only right track backward and self-stop confirmed; left stationary."
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_backward_hypothesis_01.log",
+        "allocated_range_hex": "d6..dd",
+        "selected_start_hex": "de"
+      },
+      "limits": [
+        "One computer pulse confirmed only right-track reverse and self-stop in this suspended setup.",
+        "The reverse value was inferred before this physical test; no original-remote reverse capture is available.",
+        "The full template and this device pair were tested; nibble values are not universal commands."
+      ]
+    },
+    {
+      "control": "both_tracks_forward",
+      "label_ru": "Обе гусеницы вперёд",
+      "status": "confirmed_by_user",
+      "confirmed_computer_pulses": 1,
+      "rf_channel": 31,
+      "frequency_mhz": 2431,
+      "full_tested_payload_template_hex": "15130188b27700000000dc",
+      "observed_action_slots": {
+        "5": "77",
+        "6": "00",
+        "7": "00",
+        "8": "00",
+        "9": "00"
+      },
+      "observed_self_stop": true,
+      "physical_stop_delay_ms": null,
+      "physical_setup": "Both tracks suspended, original remote off; no change reported since preceding test.",
+      "stock_remote_combined_capture": null,
+      "source_provenance": [
+        {
+          "profile_json": "rf_nano_tx_test/control_mapping_2026-11-01/left_track_forward_01_profile.json",
+          "profile_json_sha256": "1c4027ebb1b35ae10d454198e5a6988e5fe17d5771228b544228bdc85648d95d",
+          "profile_id": "0b9b4c89",
+          "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_forward_raw.log",
+          "capture_sha256": "007db61fccdee7c4f817f21209556eb4508421aca84473beb088a89f84200219",
+          "captured_frame_a": {
+            "line": 4605,
+            "timestamp": "2026-11-01T18:38:45.087+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 1,
+            "no_ack": 1,
+            "payload_hex": "15130188b207000000006c",
+            "scrambled_payload_hex": "95e63a85df2df9bc518e20",
+            "crc16": "56f6",
+            "encoded_hex": "8d5fb5cb7575752dcaf31d42ef96fcde28c7102b7b00"
+          },
+          "captured_frame_b": {
+            "line": 4606,
+            "timestamp": "2026-11-01T18:38:45.095+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 2,
+            "no_ack": 1,
+            "payload_hex": "15130188b207000000006c",
+            "scrambled_payload_hex": "95e63a85df2df9bc518e20",
+            "crc16": "5dc8",
+            "encoded_hex": "8d5fb5cb7575752ecaf31d42ef96fcde28c7102ee400"
+          }
+        },
+        {
+          "profile_json": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_forward_01_profile.json",
+          "profile_json_sha256": "1536a136e90f3762936da04c9fd2c1a910850e757c2a458750872568f0d544aa",
+          "profile_id": "844f1254",
+          "capture": "rf_nano_receiver_probe/captures/2026-11-01_left_track_backward_raw.log",
+          "capture_sha256": "8770b204dd6b97b46034b9eecf2b7de139ac41997bc54c0aedc1f600a0f2baac",
+          "captured_frame_a": {
+            "line": 17851,
+            "timestamp": "2026-11-01T18:47:40.240+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 0,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 0,
+            "no_ack": 1,
+            "payload_hex": "15130188b67000000000d9",
+            "scrambled_payload_hex": "95e63a85db5af9bc518e95",
+            "crc16": "eb79",
+            "encoded_hex": "8d5fb5cb7575752ccaf31d42edad7cde28c74af5bc80"
+          },
+          "captured_frame_b": {
+            "line": 17852,
+            "timestamp": "2026-11-01T18:47:40.252+03:00",
+            "channel": 31,
+            "mhz": 2431,
+            "air_address_hex": "8d5fb5cb75",
+            "bit_offset": 1,
+            "address_bits_reconstructed": 0,
+            "reconstruction_basis": null,
+            "reconstruction_assumption": null,
+            "pid": 1,
+            "no_ack": 1,
+            "payload_hex": "15130188b67000000000d9",
+            "scrambled_payload_hex": "95e63a85db5af9bc518e95",
+            "crc16": "ed93",
+            "encoded_hex": "8d5fb5cb7575752dcaf31d42edad7cde28c74af6c980"
+          }
+        }
+      ],
+      "action_transformation": {
+        "payload_indices_changed": [
+          5,
+          10
+        ],
+        "new_slot5_hex": "77",
+        "model": "unverified packed-nibble direction/magnitude model"
+      },
+      "provenance_status": "Combining the two forward nibbles was an offline hypothesis before transmission; the subsequent computer pulse was physically confirmed.",
+      "computer_tests": [
+        {
+          "profile_id": "2f6f18cc",
+          "status": "confirmed_both_tracks_forward_and_self_stop",
+          "counter_allocated_hex": "e6..ed",
+          "profile_report": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01_profile.json",
+          "profile_header": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01_profile.h",
+          "log": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01.log",
+          "observation_report": "rf_nano_tx_test/control_mapping_2026-11-01/both_tracks_forward_hypothesis_01_result.json",
+          "observed_direction": "forward",
+          "observed_tracks": [
+            "left",
+            "right"
+          ],
+          "observed_self_stop": true,
+          "physical_stop_delay_ms": null,
+          "window_ms": 1000,
+          "queued_frames": 198,
+          "firmware_radio_after": "off",
+          "stop_acknowledged": true,
+          "user_observation": "Both tracks forward and self-stop confirmed."
+        }
+      ],
+      "counter_epoch_source": {
+        "previous_test": "rf_nano_tx_test/control_mapping_2026-11-01/right_track_backward_hypothesis_01.log",
+        "allocated_range_hex": "de..e5",
+        "selected_start_hex": "e6"
+      },
+      "limits": [
+        "One suspended computer test confirmed both tracks forward and self-stop.",
+        "Other track combinations, ground driving and a dedicated neutral packet are not established."
+      ]
+    }
+  ],
+  "unverified_actuator_labels": {
+    "status": "unverified_attachment_not_mounted",
+    "labels": [
+      "bucket_close",
+      "bucket_open"
+    ],
+    "report": "rf_nano_tx_test/control_mapping_2026-11-01/bucket_capture_observations.json",
+    "close_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/bucket_close_capture_analysis.json",
+    "open_analysis": "rf_nano_tx_test/control_mapping_2026-11-01/bucket_open_capture_analysis.json",
+    "uncued_attempt": "The second opening capture was not cued before the user changed the target to the main boom.",
+    "interpretation": "Do not infer bucket actuator mappings from those filenames, field values, or prior labels."
+  },
+  "limits": [
+    "A full observed payload template is associated with each outcome. Action-slot values alone are not universal commands.",
+    "User observations establish movement direction and self-stop; stop delay was not measured.",
+    "Physical self-stop after ending RF does not establish a dedicated neutral packet.",
+    "Stock-remote capture annotations and computer-confirmed control mappings are distinct evidence.",
+    "Startup binding, other attachments and other movements are not established by this registry.",
+    "Profiles use bounded one-second, at-most-200-frame experiments; this documentation file performs no transmission."
+  ],
+  "unverified_track_directions": {
+    "status": "all_four_individual_track_directions_physically_confirmed",
+    "labels": [],
+    "stock_remote_limit": "Reverse switches were reported desoldered/unavailable. Reverse confirmations come from computer tests of inferred templates, not stock-remote reverse captures.",
+    "interpretation": "Confirmation of individual directions does not establish combined-track actions."
+  },
+  "unverified_combined_track_actions": {
+    "status": "other_combinations_unverified",
+    "confirmed_combination": "both_tracks_forward",
+    "interpretation": "Only the separately tested both-forward 77 template is confirmed; other combinations and ground driving are untested."
+  },
+  "milestone_status": "results_saved_no_further_tests_pending",
+  "user_next_step": "User chose to save results for now; further tests and interface work are deferred.",
+  "last_recorded_experiment": {
+    "profile_id": "f470d358",
+    "control": "main_boom_lower",
+    "preferred_action_slot7_hex": "70",
+    "counter_allocated_hex": "ee..f5",
+    "log": "rf_nano_tx_test/control_mapping_2026-11-01/boom_lower_clean_01.log",
+    "radio_off_confirmed": true,
+    "stop_acknowledged": true,
+    "next_unused_counter_hex": "f6",
+    "tests_pending": false
+  }
+}

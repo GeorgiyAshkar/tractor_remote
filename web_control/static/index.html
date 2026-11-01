@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121920">
+  <title>Трактор · Пульт</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-up" viewBox="0 0 32 32"><path d="m8 16 8-8 8 8M16 9v16"/></symbol>
+    <symbol id="icon-down" viewBox="0 0 32 32"><path d="m8 16 8 8 8-8M16 23V7"/></symbol>
+    <symbol id="icon-double-up" viewBox="0 0 40 32"><path d="m4 15 7-7 7 7M11 9v16m11-10 7-7 7 7M29 9v16"/></symbol>
+    <symbol id="icon-rotate-left" viewBox="0 0 40 40"><path d="M10 14a13 13 0 1 1-1 14M10 6v9h9"/><path d="M17 20h6v8h-6z"/></symbol>
+    <symbol id="icon-rotate-right" viewBox="0 0 40 40"><path d="M30 14a13 13 0 1 0 1 14M30 6v9h-9"/><path d="M17 20h6v8h-6z"/></symbol>
+    <symbol id="icon-tracks" viewBox="0 0 32 32"><rect x="4" y="5" width="8" height="22" rx="4"/><rect x="20" y="5" width="8" height="22" rx="4"/><path d="M7 11h2m-2 5h2m-2 5h2m14-10h2m-2 5h2m-2 5h2M12 13h8m-8 6h8"/></symbol>
+    <symbol id="icon-tower" viewBox="0 0 32 32"><path d="M6 11a12 12 0 0 1 22 7M6 5v7h7M26 22a12 12 0 0 1-22-7m22 14v-7h-7"/><rect x="12" y="11" width="8" height="10" rx="1"/></symbol>
+    <symbol id="icon-boom" viewBox="0 0 32 32"><path d="M4 26h11l2-5H9l3-10 7-5 8 17-3 3h-5l3-3-5-10-4 3-2 5M19 6l4 1 6 14"/></symbol>
+    <symbol id="icon-usb" viewBox="0 0 32 32"><path d="M16 26V6m-4 4 4-5 4 5M16 21l-8-5v-4m8 6 8-4V9"/><circle cx="16" cy="27" r="2"/><circle cx="8" cy="10" r="2"/><path d="M22 5h4v4h-4z"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M9 34h20a4 4 0 0 1 0 8H9a4 4 0 0 1 0-8Z"/><path d="M12 34V23h11l5 11M16 23V16h10l5 9-3 9M25 16l8-9 6 2 5 22-5 4-5-2 5-4-5-15-8 11"/><path d="M9 38h20"/></svg>
+        </div>
+        <div><p class="eyebrow">Локальное управление</p><h1>Трактор <span>·</span> Пульт</h1></div>
+      </div>
+      <div class="header-status">
+        <span id="demoBadge" class="demo-badge" hidden>Демо · без радиопередачи</span>
+        <div id="connectionPill" class="connection-pill" data-state="connecting"><span class="status-dot"></span><span id="connectionLabel">Проверяем связь</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="readiness" aria-label="Подключение и питание">
+        <div class="board-summary">
+          <div class="board-icon"><svg aria-hidden="true"><use href="#icon-usb"/></svg></div>
+          <div><p class="eyebrow">Подключение платы</p><h2 id="boardTitle">Проверяем подключение</h2><p id="boardDetail" class="supporting">Подождите немного — устанавливаем связь с пультом.</p></div>
+        </div>
+        <div class="power-confirmation">
+          <label class="checkbox-label" for="tractorPower"><input type="checkbox" id="tractorPower" disabled><span class="custom-check" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><span>Питание трактора включено</span></label>
+          <p id="powerHelp">Включите трактор и выключите штатный пульт.<br>Питание подтверждаете вы.</p>
+        </div>
+      </section>
+
+      <div id="notice" class="notice" data-kind="info" role="status" aria-live="polite" aria-atomic="true"><svg aria-hidden="true"><use href="#icon-info"/></svg><span id="noticeText">Элементы управления станут доступны после подключения платы и подтверждения питания.</span></div>
+
+      <div class="control-heading"><div><h2>Ручное управление</h2><p id="holdHint">Удерживайте кнопку или клавишу</p></div><div id="commandStatus" class="command-status"><span class="status-dot"></span><span id="commandLabel">Передача неактивна</span></div></div>
+
+      <div class="control-grid">
+        <section class="control-panel tracks-panel" aria-labelledby="tracksTitle">
+          <header class="panel-heading"><div class="panel-icon"><svg aria-hidden="true"><use href="#icon-tracks"/></svg></div><div><h3 id="tracksTitle">Гусеницы</h3><p>Вместе или по отдельности</p></div><span class="panel-number" aria-hidden="true">01</span></header>
+          <button type="button" class="hold-button both-forward" data-action="forward" aria-keyshortcuts="W" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-double-up"/></svg><span class="button-label">Обе вперёд</span><kbd>W</kbd></button>
+          <div class="track-columns">
+            <div class="track-column"><p class="track-label">Левая</p><button type="button" class="hold-button" data-action="left_forward" aria-keyshortcuts="Q" aria-label="Левая гусеница вперёд, удерживайте Q" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-up"/></svg><span class="button-label">Вперёд</span><kbd>Q</kbd></button><button type="button" class="hold-button" data-action="left_backward" aria-keyshortcuts="A" aria-label="Левая гусеница назад, удерживайте A" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-down"/></svg><span class="button-label">Назад</span><kbd>A</kbd></button></div>
+            <div class="track-column"><p class="track-label">Правая</p><button type="button" class="hold-button" data-action="right_forward" aria-keyshortcuts="E" aria-label="Правая гусеница вперёд, удерживайте E" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-up"/></svg><span class="button-label">Вперёд</span><kbd>E</kbd></button><button type="button" class="hold-button" data-action="right_backward" aria-keyshortcuts="D" aria-label="Правая гусеница назад, удерживайте D" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-down"/></svg><span class="button-label">Назад</span><kbd>D</kbd></button></div>
+          </div>
+        </section>
+
+        <section class="control-panel" aria-labelledby="towerTitle">
+          <header class="panel-heading"><div class="panel-icon"><svg aria-hidden="true"><use href="#icon-tower"/></svg></div><div><h3 id="towerTitle">Башня</h3><p>Поворот платформы</p></div><span class="panel-number" aria-hidden="true">02</span></header>
+          <div class="large-buttons"><button type="button" class="hold-button large-button" data-action="tower_left" aria-keyshortcuts="J" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-rotate-left"/></svg><span class="button-label">Влево</span><kbd>J</kbd></button><button type="button" class="hold-button large-button" data-action="tower_right" aria-keyshortcuts="L" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-rotate-right"/></svg><span class="button-label">Вправо</span><kbd>L</kbd></button></div>
+        </section>
+
+        <section class="control-panel" aria-labelledby="boomTitle">
+          <header class="panel-heading"><div class="panel-icon"><svg aria-hidden="true"><use href="#icon-boom"/></svg></div><div><h3 id="boomTitle">Основная стрела</h3><p>Подъём и опускание</p></div><span class="panel-number" aria-hidden="true">03</span></header>
+          <div class="large-buttons"><button type="button" class="hold-button large-button" data-action="boom_up" aria-keyshortcuts="I" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-up"/></svg><span class="button-label">Поднять</span><kbd>I</kbd></button><button type="button" class="hold-button large-button" data-action="boom_down" aria-keyshortcuts="K" aria-describedby="holdHint" disabled><svg class="control-icon" aria-hidden="true"><use href="#icon-down"/></svg><span class="button-label">Опустить</span><kbd>K</kbd></button></div>
+        </section>
+      </div>
+
+      <div class="stop-dock"><button type="button" id="stopButton" class="stop-button" aria-keyshortcuts="Space Escape"><span class="stop-symbol" aria-hidden="true"></span><span class="stop-copy"><strong>СТОП</strong><span>Прекратить передачу</span></span><span class="stop-shortcuts"><kbd>Пробел</kbd><span>или</span><kbd>Esc</kbd></span></button></div>
+
+      <footer class="help-footer"><div class="hold-explanation"><span class="footer-indicator" aria-hidden="true"></span><p>После отпускания передача прекращается; питание модели контролируете вы.<br><span>Плата сообщает о передаче команды, а не о фактическом движении трактора.</span></p></div><details class="keyboard-help"><summary>Клавиши и события <span aria-hidden="true">＋</span></summary><div class="help-popover"><p><b>W</b> — обе вперёд · <b>Q / A</b> — левая · <b>E / D</b> — правая<br><b>J / L</b> — башня · <b>I / K</b> — стрела · <b>Пробел / Esc</b> — стоп</p><p class="layout-note">Клавиши работают и в русской раскладке.</p><ul id="eventList" class="event-list" aria-label="Последние события"><li>Здесь появятся события подключения.</li></ul></div></details></footer>
+    </main>
+    <div class="page-bottom"><span>Локальный пульт</span><span>9 проверенных действий <span class="small-divider">/</span> управление удержанием</span></div>
+  </div>
+  <div id="toasts" class="toast-stack" role="status" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>

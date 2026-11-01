@@ -1,0 +1,16 @@
+{
+  "status": "confirmed_left_and_self_stop",
+  "profile_id": "14a11a61",
+  "counter_start_hex": "48",
+  "counter_last_allocated_hex": "4f",
+  "hypothesis": "tower_left",
+  "user_observation": "Tower turned left and stopped by itself.",
+  "firmware_result": {
+    "token": "5b7e8641",
+    "reason": "complete",
+    "frames": "198",
+    "elapsed_ms": "1000",
+    "radio": "off"
+  },
+  "stop_acknowledged": true
+}

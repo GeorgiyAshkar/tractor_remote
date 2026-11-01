@@ -1,0 +1,46 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local machine settings and secrets
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime counter reservations and machine-specific verification
+/web_control/runtime/
+/web_control/verification.json
+/rf_nano_tx_test/experiment_state.json
+
+# Full radio captures may contain unrelated nearby traffic.
+# Curated target frames live in rf_nano_controller/tests/fixtures/.
+/rf_nano_receiver_probe/captures/
+*.log
+
+# Source photos and vendor documents, kept locally
+/*.HEIC
+/*.heic
+/*.JPEG
+/*.jpeg
+/*.JPG
+/*.jpg
+/*.pdf
+
+# Arduino/compiler output
+/build/
+.pio/
+*.o
+*.elf
+*.hex
+*.bin
+*.eep
